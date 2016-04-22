@@ -24,5 +24,17 @@ public class DrawingPanel extends JPanel
 		mainGraphics.setColor(Color.PINK);
 		mainGraphics.setStroke(new BasicStroke(5));
 		mainGraphics.draw(new Rectangle(90, 10, 20, 40));
+		
+		for(Rectangle current : rectangleList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
 	}
 }
