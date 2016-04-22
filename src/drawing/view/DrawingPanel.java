@@ -5,12 +5,31 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import drawing.controller.DrawingController;
+import java.awt.event.ActionEvent;
 
 public class DrawingPanel extends JPanel
 {
+	private void setupListeners()
+	{
+		drawRectangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
+				int width = (int)(Math.random() * 100);
+				int height = (int)(Math.random() * 150);
+				
+				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				repaint();
+			}
+		});
+	}
+	
 	private DrawingController baseController;
 	private SpringLayout baseLayout;
 	private ShapePanel shapePanel;
