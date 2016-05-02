@@ -2,6 +2,7 @@ package drawing.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -42,6 +43,13 @@ public class ShapePanel extends JPanel
 	
 	public void addEllipse()
 	{
+		int xPosition = (int)(Math.random() * 1500);
+		int yPosition = (int)(Math.random() * 1000);
+		int width = (int)(Math.random() * 2000);
+		int height =(int)(Math.random() * 1000);
+		
+		Ellipse2D currentEllipse = new Ellipse2D.Double(xPosition, yPosition, width, height);
+		ellipseList.add(currentEllipse);
 		
 	}
 	
@@ -84,5 +92,9 @@ public class ShapePanel extends JPanel
 	protected void paintComponent(Graphics currentGraphics)
 	{
 		super.paintComponent(currentGraphics);
+		Graphics2D mainGraphics = (Graphics2D) currentGraphics;
+		
 	}
+	
+	
 }

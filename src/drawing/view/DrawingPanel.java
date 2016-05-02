@@ -13,28 +13,33 @@ import java.awt.event.ActionEvent;
 
 public class DrawingPanel extends JPanel
 {
-	private void setupListeners()
-	{
-		drawRectangleButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				int xPosition = (int)(Math.random() * 800);
-				int yPosition = (int)(Math.random() * 800);
-				int width = (int)(Math.random() * 100);
-				int height = (int)(Math.random() * 150);
-				
-				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
-				repaint();
-			}
-		});
-	}
-	
 	private DrawingController baseController;
 	private SpringLayout baseLayout;
 	private ShapePanel shapePanel;
-	private JButton drawRectangleButton;
 	private ArrayList<Rectangle> rectangleList;
+	private JButton addRectangleButton;
+	private JButton addCircleButton;
+	private JButton addSquareButton;
+	private JButton addTriangleButton;
+	private JButton addEllipseButton;
+	private JButton addPolygonButton;
+	private JButton clearButton;
+	private JButton drawRectangleButton;
+	
+	public DrawingPanel(DrawingController baseController)
+	{
+		this.baseController = baseController;
+		baseLayout = new SpringLayout();
+		addRectangleButton = new JButton("Add a rectangle!");
+		addPolygonButton = new JButton("Add a polygon!");
+		rectangleList = new ArrayList<Rectangle>();
+		shapePanel = new ShapePanel();
+		addEllipseButton = new JButton ("Add an ellipse!");
+		addCircleButton = new JButton ("Add a circle!");
+		addSquareButton = new JButton ("Add a square!");
+		addTriangleButton = new JButton ("Add a triangle!");
+		
+	}
 
 	protected void paintComponent(Graphics currentGraphics)
 	{
@@ -55,5 +60,21 @@ public class DrawingPanel extends JPanel
 			
 			mainGraphics.fill(current);
 		}
+	}
+	private void setupListeners()
+	{
+		drawRectangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
+				int width = (int)(Math.random() * 100);
+				int height = (int)(Math.random() * 150);
+				
+				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				repaint();
+			}
+		});
 	}
 }

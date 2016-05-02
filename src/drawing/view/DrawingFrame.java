@@ -1,6 +1,29 @@
 package drawing.view;
 
-public class DrawingFrame
+import javax.swing.JFrame;
+import drawing.controller.DrawingController;
+
+public class DrawingFrame extends JFrame
 {
+	private DrawingController baseController;
+	private DrawingPanel basePanel;
+	
+	public DrawingFrame(DrawingController baseController)
+	{
+		this.baseController = baseController;
+		basePanel = new DrawingPanel(baseController);
+		setupFrame();
+	}
+	
+	private void setupFrame()
+	{
+		this.setContentPane(basePanel);
+		this.setSize(500, 500);
+		this.setResizable(false);
+		this.setVisible(true);
+	}
 
 }
+
+
+
