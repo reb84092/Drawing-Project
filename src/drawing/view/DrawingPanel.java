@@ -61,6 +61,27 @@ public class DrawingPanel extends JPanel
 			mainGraphics.fill(current);
 		}
 	}
+	
+	private void setupPanel()
+	{
+		this.setLayout(baseLayout);
+		this.add(addRectangleButton);
+		this.add(addCircleButton);
+		this.add(addSquareButton);
+		this.add(addTriangleButton);
+		this.add(addEllipseButton);
+		this.add(addPolygonButton);
+		this.add(clearButton);
+		this.add(drawRectangleButton);
+		
+	}
+	
+
+	private void setupLayout()
+	{
+		
+	}
+	
 	private void setupListeners()
 	{
 		drawRectangleButton.addActionListener(new ActionListener()
