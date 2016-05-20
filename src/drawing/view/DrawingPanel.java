@@ -7,8 +7,11 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 import javax.swing.*;
+
 import drawing.controller.DrawingController;
+
 import java.awt.event.ActionEvent;
 
 public class DrawingPanel extends JPanel
@@ -79,7 +82,17 @@ public class DrawingPanel extends JPanel
 
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.WEST, addRectangleButton, 107, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, addRectangleButton, -32, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, addCircleButton, 37, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, addCircleButton, -24, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, addSquareButton, 0, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, addSquareButton, -36, SpringLayout.NORTH, addRectangleButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, addTriangleButton, 0, SpringLayout.NORTH, addSquareButton);
+		baseLayout.putConstraint(SpringLayout.EAST, addTriangleButton, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, addPolygonButton, 0, SpringLayout.NORTH, addSquareButton);
+		baseLayout.putConstraint(SpringLayout.WEST, addPolygonButton, 77, SpringLayout.EAST, addSquareButton);
+
 	}
 	
 	private void setupListeners()
